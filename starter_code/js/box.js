@@ -2,6 +2,9 @@ function Box(game) {
     this.game = game;
     this.x = 30;
     this.y = 500;
+    this.vx = 0.04;
+    this.width = 50;
+    this.height = 50;
     this.vy = 1;
     this.keyBoard();
     this.x = this.game.canvas.width * 0.07;
@@ -11,14 +14,14 @@ function Box(game) {
 
 Box.prototype.draw = function () {
     this.game.ctx.fillStyle = "#E88D20";
-    this.game.ctx.fillRect(this.x, this.y, 50, 50);
+    this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
     this.game.ctx.stroke();
 };
 Box.prototype.keyBoard = function () {
     document.onkeydown = function (event) {
-        if (event.keyCode === 32) {
-            this.y -= 60;
-            this.vy -= 4;
+        if (event.keyCode === SPACE) {
+            this.y -= 55;
+            this.vy -= 5;
         } else {
             event.preventDefault();
         }
@@ -27,6 +30,7 @@ Box.prototype.keyBoard = function () {
 };
 
 Box.prototype.moveAll = function () {
+    this.x += this.vx;
     var gravity = 0.1;
     if (this.y >= this.y0) {
         this.y = this.y0;
@@ -35,6 +39,5 @@ Box.prototype.moveAll = function () {
         this.y += this.vy;
     }
 };
-
 
 var SPACE = 32;
