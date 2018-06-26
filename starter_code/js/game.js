@@ -19,22 +19,26 @@ Game.prototype.start = function () {
             this.framesCounter = 0;
         }
 
-        if ((Math.floor(Math.random() * this.framesCounter) % 60 === 0)) {
+        if ((Math.floor(Math.random() * this.framesCounter) % 100 === 0)) {
             this.generateObstacles();
         }
 
         this.draw();
         this.moveAll();
-
-    }.bind(this), 16);
+        this.crash();
+    }.bind(this), 1000 / this.fps);
 };
 
 Game.prototype.stop = function () {
+    this.crash();
+    console.log("hoho");
+    clearInterval(this.interval);
 
 };
 
 Game.prototype.loser = function () {
     this.stop();
+    console.log("hhhhh");
 
 };
 
@@ -46,12 +50,11 @@ Game.prototype.reset = function () {
 };
 
 Game.prototype.crash = function () {
-    return this.obstacles.some(function(obstacle) {
-    return (
-      ((this.box.x + this.box.width) >= this.obstacles.x &&
-       this.box.x < (obstacle.x + obstacle.w) &&
-       this.box.y + (this.box.height - 20) >= obstacle.y)
-    );
+  
+  this.obstacles.forEach( function(e) {
+    if(( this.box.x + this.box.width > e.x && e.x+e.width > this.box.x) && (e.y + e.y > this.box.y && this.box.y + this.box.y > e.y)) {
+        console.log('colision');
+    }
   }.bind(this));
 
 };
