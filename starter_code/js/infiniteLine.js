@@ -1,12 +1,13 @@
 function InfiniteLine(game) {
-
     this.game = game;
-    this.game.ctx.moveTo(0, 400);
-    this.game.ctx.lineTo(800, 400);
-    this.game.ctx.stroke();
 }
 
-InfiniteLIne.prototype.draw = function () {
-
+InfiniteLine.prototype.draw = function () {
+    this.game.ctx.beginPath();
+    this.game.ctx.moveTo(0, 502);
+    this.game.ctx.lineWidth = 60;   
+    this.game.ctx.lineTo(900, 502);
+    this.game.ctx.closePath();
+    this.game.ctx.stroke();
 };
 

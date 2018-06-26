@@ -1,20 +1,22 @@
 function Obstacles(game) {
-    this.ctx = this.canvas.getContext("2d");
     this.game = game;
-    this.ctx.beginPath();
-    this.ctx.strokeStyle = "#00F";
-    this.ctx.moveTo(0, 0); // pick up "pen," reposition at 500 (horiz), 0 (vert)
-    this.ctx.lineTo(500, 200); // draw straight down by 200px (200 + 200)
-    this.ctx.lineTo(700, 200); // draw up toward left (100 less than 300, so left)
-    this.ctx.closePath(); // connect end to start
-    this.ctx.stroke(); // outline the shape that's been described
+    this.x = 600;
+    this.y = 500;
+    this.vx = 8;
 
 }
 
 Obstacles.prototype.draw = function () {
-
+    this.game.ctx.beginPath();
+    this.game.ctx.fillStyle = "grey";
+    this.game.ctx.moveTo(this.x, 472); 
+    this.game.ctx.lineWidth = 1;
+    this.game.ctx.lineTo(this.x + 100, 472);
+    this.game.ctx.lineTo(this.x + 50, 420); 
+    this.game.ctx.closePath(); 
+    this.game.ctx.fill(); 
 };
 
-Obstacles.prototype.move = function () {
-
+Obstacles.prototype.moveAll = function () {
+    this.x -= this.vx;
 };
