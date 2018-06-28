@@ -1,0 +1,43 @@
+
+.background {
+
+    background-image: url("../images/fondoAzul.png");
+    background-size: cover;
+}
+ .title {
+     font-size: 100px;
+     font-weight: lighter;
+     color: gray;
+     display: flex;
+     justify-content:center;
+     padding-top: 10%;
+ }
+
+.images {
+    display: flex;
+    justify-content:center;
+    padding-top: 200px;
+    padding-left: 250px;
+}
+
+.button {
+    display: flex;
+    justify-content:center;         
+}
+
+
+.btn{
+    height: 200px;
+    width: 400px; 
+
+}
+
+
+
+
+
+
+
+
+
+
