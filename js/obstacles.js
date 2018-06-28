@@ -46,7 +46,7 @@ Obstacles.prototype.creatingObstacles = function () {
         height: this.height
     };
 
-        this.obstacles.push(obstacle);
+    this.obstacles.push(obstacle);
 };
 
 Obstacles.prototype.reset = function () {

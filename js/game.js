@@ -10,7 +10,7 @@ function Game(canvasId) {
     this.reset();
     this.attempt = 1;
     window.requestAnimationFrame(this.update.bind(this));
-    this.music = new Audio('./music/Avicii - Levels.mp3'); 
+    this.music = new Audio('./music/Avicii - Levels.mp3');
     this.music.play();
     this.music.loop = true;
 
@@ -20,10 +20,9 @@ function Game(canvasId) {
 Game.prototype.update = function () {
     this.framesCounter++;
     this.clear();
-    if(Math.floor(Math.random()*this.framesCounter)% 100 === 0  ){
-            console.log(this.framesCounter);
+    var numR = Math.floor(Math.random() * 100);
+    if (numR < 1) // 2% de posibilidades de generar obstáculos
         this.obstacles.creatingObstacles();
-    }
     this.crash();
     this.draw();
     this.moveAll();
@@ -32,7 +31,7 @@ Game.prototype.update = function () {
 
 Game.prototype.stop = function () {
     this.reset();
-    
+
 };
 
 Game.prototype.reset = function () {

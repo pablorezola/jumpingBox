@@ -20,18 +20,26 @@ body {
      justify-content:center;
  }
 
+.images {
+    margin-top: 80px;
+}
+
+ .box {
+     margin-left: 10px;
+ }
+
 .triangle {
-   margin-left: 200px;
+   padding-left: 25px;
 }
 
-.button {
-    padding-top: 30px !important;
-}
 
+.btn-lg {
+
+    margin-top: 150px !important;
+}
 
 .click  {
     font-size: 30px!important;
-    padding-bottom: 20px;
     height: 200px;
     width: 400px; 
     border: 0px;

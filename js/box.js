@@ -22,7 +22,7 @@ Box.prototype.keyBoard = function () {
         if (event.keyCode === SPACE && this.y == this.y0) {
             this.y -= this.vy;
             this.vy -= 9;
-        }else if(event.keyCode === ENTER){ 
+        } else if (event.keyCode === ENTER) {
             confirm("PAUSE." + " DO YO WANT TO CONTINUE?");
         }
     }.bind(this);
@@ -37,7 +37,7 @@ Box.prototype.moveAll = function () {
         this.y += this.vy;
     }
 
-    if( this.y == this.y0 ) {
+    if (this.y == this.y0) {
         this.vy = 1;
     }
 };

@@ -1,6 +1,6 @@
-window.onload = function () {    
-    $("#button").on('click', function(){
-        window.location= "game.html";
-        
+window.onload = function () {
+    $("#button").on('click', function () {
+        window.location = "game.html";
+
     });
 }; 
