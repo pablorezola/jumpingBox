@@ -16,7 +16,10 @@ function Game(canvasId) {
 Game.prototype.update = function () {
     this.framesCounter++;
     this.clear();
-    this.obstacles.creatingObstacles();
+    if(Math.floor(Math.random()*this.framesCounter)% 100 === 0){
+
+        this.obstacles.creatingObstacles();
+    }
     this.crash();
     this.draw();
     this.moveAll();
@@ -24,9 +27,8 @@ Game.prototype.update = function () {
 };
 
 Game.prototype.stop = function () {
-    clearInterval(this.interval);
     this.reset();
-
+    
 };
 
 Game.prototype.reset = function () {
@@ -41,9 +43,9 @@ Game.prototype.crash = function () {
     }
 };
 
-/* Game.prototype.clearObstacles = function () {
+ Game.prototype.clearObstacles = function () {
 
-}; */
+}; 
 
 Game.prototype.draw = function () {
     this.background.draw();

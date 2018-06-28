@@ -27,13 +27,14 @@ Obstacles.prototype.moveAll = function () {
 };
 
 Obstacles.prototype.isColliding = function (box) {
+    var colliding = false;
     this.obstacles.forEach(function (e) {
         if ((box.x + box.width > e.x && box.x < e.x + box.width) && (box.y + box.height > e.y && box.y < e.y + box.height)) {
-            return true;
-        } else {
-            return false;
+            colliding = true;
         }
     });
+
+    return colliding;
 };
 
 Obstacles.prototype.creatingObstacles = function () {
@@ -45,12 +46,7 @@ Obstacles.prototype.creatingObstacles = function () {
         height: this.height
     };
 
-    if (this.obstacles.length == 0) {
         this.obstacles.push(obstacle);
-    } else if (!(this.obstacles[this.obstacles.length - 1].x + this.obstacles[this.obstacles.length - 1].width + 350 > obstacle.x && obstacle.x > this.obstacles[this.obstacles.length - 1].x + this.obstacles[this.obstacles.length - 1].width + 350)) {
-        this.obstacles.push(obstacle);
-
-    }
 };
 
 Obstacles.prototype.reset = function () {
