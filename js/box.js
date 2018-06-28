@@ -7,7 +7,6 @@ function Box(game) {
     this.x = this.game.canvas.width * 0.07;
     this.y0 = this.game.canvas.height * 0.85;
     this.y = this.y0;
-    //this.counter = 0;
 }
 
 Box.prototype.draw = function () {
@@ -42,6 +41,7 @@ Box.prototype.moveAll = function () {
     }
 
     if( this.y == this.y0 ) {
-        this.vy = 2;
+        this.vy = 1;
     }
 };
+

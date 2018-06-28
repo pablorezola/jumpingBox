@@ -1,35 +1,43 @@
 
-.background {
+body {
+    height: 100vh;
+}
 
+.ironhack {
+    padding-left: 30px;
+    padding-top: 30px;
+    text-align: left;
+}
+
+.background {
     background-image: url("../images/fondoAzul.png");
     background-size: cover;
+    text-align: center;
+    height: 100%;
 }
- .title {
-     font-size: 100px;
-     font-weight: lighter;
-     color: gray;
+ .heading {
      display: flex;
      justify-content:center;
-     padding-top: 10%;
  }
 
-.images {
-    display: flex;
-    justify-content:center;
-    padding-top: 200px;
-    padding-left: 250px;
+.triangle {
+   margin-left: 200px;
 }
 
 .button {
-    display: flex;
-    justify-content:center;         
+    padding-top: 30px !important;
 }
 
 
-.btn{
+.click  {
+    font-size: 30px!important;
+    padding-bottom: 20px;
     height: 200px;
     width: 400px; 
-
+    border: 0px;
+    border-radius: 50px !important;
+    background-color:rgb(46, 218, 31) !important;
+    color: white;
 }
 
 

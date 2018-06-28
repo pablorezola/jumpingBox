@@ -6,31 +6,55 @@ function Obstacles(game) {
     this.vx = 5;
     this.width = 50;
     this.height = 50;
+    this.obstacles = [];
 
 }
 
 Obstacles.prototype.draw = function () {
-    this.game.ctx.beginPath();
-    this.game.ctx.fillStyle = "grey";
-    this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
-    this.game.ctx.closePath();
-    this.game.ctx.stroke();
+    this.obstacles.forEach(function (e) {
+        this.game.ctx.beginPath();
+        this.game.ctx.fillStyle = "grey";
+        this.game.ctx.fillRect(e.x, e.y, e.width, e.height);
+        this.game.ctx.closePath();
+        this.game.ctx.stroke();
+    }.bind(this));
 };
 
 Obstacles.prototype.moveAll = function () {
-    this.x -= this.vx;
+    this.obstacles.forEach(function (e) {
+        e.x -= e.vx;
+    }.bind(this));
 };
 
-    // triangulo
+Obstacles.prototype.isColliding = function (box) {
+    this.obstacles.forEach(function (e) {
+        if ((box.x + box.width > e.x && box.x < e.x + box.width) && (box.y + box.height > e.y && box.y < e.y + box.height)) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+};
 
-   /* this.x = 1000;
-    this.y = 422; */
+Obstacles.prototype.creatingObstacles = function () {
+    var obstacle = {
+        x: this.x,
+        y: this.y,
+        vx: this.vx,
+        width: this.width,
+        height: this.height
+    };
 
-    /*this.game.ctx.beginPath();
-    this.game.ctx.fillStyle = "grey";
-    this.game.ctx.moveTo(this.x, this.y); 
-    this.game.ctx.lineWidth = 1;
-    this.game.ctx.lineTo(this.x + 100, this.y);
-    this.game.ctx.lineTo(this.x + 50, 420); 
-    this.game.ctx.closePath(); 
-    this.game.ctx.fill(); */
+    if (this.obstacles.length == 0) {
+        this.obstacles.push(obstacle);
+    } else if (!(this.obstacles[this.obstacles.length - 1].x + this.obstacles[this.obstacles.length - 1].width + 350 > obstacle.x && obstacle.x > this.obstacles[this.obstacles.length - 1].x + this.obstacles[this.obstacles.length - 1].width + 350)) {
+        this.obstacles.push(obstacle);
+
+    }
+};
+
+Obstacles.prototype.reset = function () {
+    this.obstacles = [];
+
+};
+
