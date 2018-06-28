@@ -1,4 +1,6 @@
-window.onload = function () {
-    var game = new Game("canvas");
-    game.update();
+window.onload = function () {    
+    $("#button").on('click', function(){
+        window.location= "game.html";
+        
+    });
 }; 

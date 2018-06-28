@@ -18,16 +18,13 @@ Box.prototype.draw = function () {
 Box.prototype.keyBoard = function () {
     var SPACE = 32;
     var ENTER = 13;
-    //counter++;
     document.onkeydown = function (event) {
         if (event.keyCode === SPACE && this.y == this.y0) {
             this.y -= this.vy;
             this.vy -= 9;
         }else if(event.keyCode === ENTER){ 
             confirm("PAUSE." + " DO YO WANT TO CONTINUE?");
-        }// else if (event.keyCode === SPACE || this.box.y + this.box.height == this.y){
-          //  this.counter = 0;
-        //}
+        }
     }.bind(this);
 };
 

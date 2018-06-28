@@ -10,14 +10,18 @@ function Game(canvasId) {
     this.reset();
     this.attempt = 1;
     window.requestAnimationFrame(this.update.bind(this));
+    this.music = new Audio('./music/Avicii - Levels.mp3'); 
+    this.music.play();
+    this.music.loop = true;
+
 }
 
 
 Game.prototype.update = function () {
     this.framesCounter++;
     this.clear();
-    if(Math.floor(Math.random()*this.framesCounter)% 100 === 0){
-
+    if(Math.floor(Math.random()*this.framesCounter)% 100 === 0  ){
+            console.log(this.framesCounter);
         this.obstacles.creatingObstacles();
     }
     this.crash();
@@ -43,15 +47,10 @@ Game.prototype.crash = function () {
     }
 };
 
- Game.prototype.clearObstacles = function () {
-
-}; 
-
 Game.prototype.draw = function () {
     this.background.draw();
     this.box.draw();
     this.infiniteLine.draw();
-    //.forEach(function (obstacle) { obstacle.draw(); });
     this.obstacles.draw();
     this.ctx.font = "40px sans-serif";
     this.ctx.fillStyle = "grey";
@@ -65,7 +64,6 @@ Game.prototype.clear = function () {
 Game.prototype.moveAll = function () {
     this.background.moveAll();
     this.box.moveAll();
-    //.forEach(function (obstacle) { obstacle.moveAll(); });
     this.obstacles.moveAll();
 
 };
