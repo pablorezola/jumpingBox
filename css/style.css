@@ -3,6 +3,11 @@ body {
     height: 100vh;
 }
 
+#canvas {
+    padding-left: 30px;
+    padding-top: 30px;
+    width: 80vw;
+}
 .ironhack {
     padding-left: 30px;
     padding-top: 30px;

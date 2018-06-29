@@ -23,7 +23,7 @@ Box.prototype.keyBoard = function () {
             this.y -= this.vy;
             this.vy -= 9;
         } else if (event.keyCode === ENTER) {
-            confirm("PAUSE." + " DO YO WANT TO CONTINUE?");
+            alert("PAUSE." + " DO YO WANT TO CONTINUE?");
         }
     }.bind(this);
 };

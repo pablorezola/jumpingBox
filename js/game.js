@@ -21,8 +21,9 @@ Game.prototype.update = function () {
     this.framesCounter++;
     this.clear();
     var numR = Math.floor(Math.random() * 100);
-    if (numR < 1) // 2% de posibilidades de generar obstáculos
+    if (numR < 1) // 1% de posibilidades de generar obstáculos
         this.obstacles.creatingObstacles();
+    var clock = 
     this.crash();
     this.draw();
     this.moveAll();
@@ -42,8 +43,9 @@ Game.prototype.reset = function () {
 
 Game.prototype.crash = function () {
     if (this.obstacles.isColliding(this.box)) {
+        alert("GAME OVER. Your score is: " + this.framesCounter );
         this.stop();
-    }
+    } 
 };
 
 Game.prototype.draw = function () {
@@ -54,6 +56,9 @@ Game.prototype.draw = function () {
     this.ctx.font = "40px sans-serif";
     this.ctx.fillStyle = "grey";
     this.ctx.fillText("Attempt " + (this.attempt), 100, 100);
+    this.ctx.font = "40px sans-serif";
+    this.ctx.fillStyle = "grey";
+    this.ctx.fillText("Score: " + (this.framesCounter), 500, 100);
 };
 
 Game.prototype.clear = function () {
